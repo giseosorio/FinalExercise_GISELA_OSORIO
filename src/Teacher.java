@@ -42,7 +42,7 @@ public class Teacher extends Person{
 	
 	public String toString() {
         String s="";
-        s+=" Teacher First Name = "+this.getFirstName();
+        s+=" \n Teacher First Name = "+this.getFirstName();
         s+=" \n Teacher Last Name = "+this.getLastName();
         s+=" \n Base Salary = "+this.baseSalary;
         s+=" \n Experience's Years = "+this.experienceYears;

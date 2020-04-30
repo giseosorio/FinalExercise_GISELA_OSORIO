@@ -48,10 +48,12 @@ public class Subject {
 	
 	public String toString() {
         String s="";
-        s+=" Subject Name = "+this.subjectName;
+        s+=" \n ---------------------------------";
+        s+=" \n Subject Name = "+this.subjectName;
         s+=" \n Subject Classroom = "+this.subjectClassroom;
         s+=" \n Student = "+this.student;
         s+=" \n Teacher = "+this.teacher;
+        s+=" \n ---------------------------------";
         return s;
 	}
 

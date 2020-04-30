@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class University {
+import com.sun.org.apache.xpath.internal.operations.Equals;
 
+public class University {
+	
+	
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
@@ -13,6 +16,9 @@ public class University {
 		String studentId;
 		int studentAge;
 		int subjectSelectedByStudent; 
+		String newSubjectName;
+		String newSubjectClassroom;
+		String studentIdSelected;
 		
 		ArrayList<Student> studentList = new ArrayList<Student>();
 		ArrayList<Teacher> teacherList = new ArrayList<Teacher>();
@@ -33,8 +39,7 @@ public class University {
 		Student student4 = new Student("Carolina", "Alzate", "id4", 24);
 		Student student5 = new Student("Gloria", "Alzate", "id5", 25);
 		Student student6 = new Student("Paola", "Lopez", "id6", 26);
-		
-				
+						
 		studentList.add(student);
 		studentList.add(student1);
 		studentList.add(student2);
@@ -42,12 +47,6 @@ public class University {
 		studentList.add(student4);
 		studentList.add(student5);
 		studentList.add(student6);
-		
-		/* for (int i = 0; i <= studentList.size() - 1; i++) {
-			 	System.out.println("---------------------------------------");
-	            System.out.println(studentList.get(i).toString());
-	            System.out.println("---------------------------------------");
-		 }*/
 				
 		//Subject's List
 		Subject subject = new Subject("Programming 1", "LP-201", studentList, teacherFullTime);
@@ -71,88 +70,106 @@ public class University {
 		System.out.println("-----------------------------------");
 		
 		option = scanner.nextInt();
-				
-		switch (option) {
-        case 1:
-        	for (int i = 0; i <= teacherList.size() - 1; i++) {
-			 	System.out.println("---------------------------------------");
-	            System.out.println(teacherList.get(i).toString());
-	            System.out.println("---------------------------------------");
-		 }
-            break;
-        case 2:
-        	System.out.println("Select a class:");
-        	System.out.println("1. Programming 1");
-        	System.out.println("2. Programming 2");
-        	System.out.println("3. Programming 3");
-        	System.out.println("4. Programming 4");
-        	
-        	printClassStudentTeacher = scanner.nextInt();
-        	
-        	if(printClassStudentTeacher == 1) {
-        		System.out.println("---------------------------------------");
-       		 	System.out.print(subject);
-       		 	System.out.println("\n---------------------------------------");
-        	}else if (printClassStudentTeacher == 2) {
-        		System.out.println("---------------------------------------");
-       			System.out.println(subject1);
-       			System.out.println("\n---------------------------------------");
-			}else if (printClassStudentTeacher == 3) {
-				System.out.println("---------------------------------------");
-				System.out.println(subject2);
-				System.out.println("\n---------------------------------------");
-			}else {
-				System.out.println("\n---------------------------------------");
-				System.out.println(subject3);
-				System.out.println("---------------------------------------");
-			}
-        	
-            break;
-        case 3:
-        	System.out.println("Enter the Student First Name:");
-        	studentFirstName = scanner.next();
-        	System.out.println("Enter the Student Last Name:");
-        	studentLastName = scanner.next();
-        	System.out.println("Enter the Student Id:");
-        	studentId = scanner.next();
-        	System.out.println("Enter the Student Age:");
-        	studentAge = scanner.nextInt();
-        	Student student7 = new Student(studentFirstName, studentLastName, studentId, studentAge);
-        	System.out.println(student7);
-        	
-        	System.out.println("Select a class:");
-        	System.out.println("1. Programming 1");
-        	System.out.println("2. Programming 2");
-        	System.out.println("3. Programming 3");
-        	System.out.println("4. Programming 4");
-        	
-        	subjectSelectedByStudent = scanner.nextInt();
-        	
-        	/*if(subjectSelectedByStudent == 1) {
-        		 subject ("Programming 1", "LP-201", studentList.set(6, student7), teacherFullTime);
-        	}else if (subjectSelectedByStudent == 2) {
-				
-			}else if (subjectSelectedByStudent == 3) {
-				
-			}else {
-				
-			}*/
-        	
-            break;
-        case 4:
-        	
-        	break;
-        case 5:
-        	
-        	break;
-        case 6:
-        	System.out.println("-----------------------------------");
-    		System.out.println("You left. Thank you for using the service!");
-    		System.out.println("-----------------------------------");
-        	break;
-		}
 		
-				
-	}
+		
+			switch (option) {
+	        case 1:
+	        	for (int i = 0; i <= teacherList.size() - 1; i++) {
+				 	System.out.println("---------------------------------------");
+		            System.out.println(teacherList.get(i).toString());
+		            System.out.println("---------------------------------------");
+			 }
+	            break;
+	        case 2:
+	        	System.out.println("\n Select a class:");
+	        	System.out.println("1. Programming 1");
+	        	System.out.println("2. Programming 2");
+	        	System.out.println("3. Programming 3");
+	        	System.out.println("4. Programming 4");
+	        	
+	        	printClassStudentTeacher = scanner.nextInt();
+	        	
+	        	if(printClassStudentTeacher == 1) {
+	        		System.out.println("---------------------------------------");
+	       		 	System.out.print(subject);
+	       		 	System.out.println("\n---------------------------------------");
+	        	}else if (printClassStudentTeacher == 2) {
+	        		System.out.println("---------------------------------------");
+	       			System.out.println(subject1);
+	       			System.out.println("\n---------------------------------------");
+				}else if (printClassStudentTeacher == 3) {
+					System.out.println("---------------------------------------");
+					System.out.println(subject2);
+					System.out.println("\n---------------------------------------");
+				}else {
+					System.out.println("\n---------------------------------------");
+					System.out.println(subject3);
+					System.out.println("---------------------------------------");
+				}
+	        	
+	            break;
+	        case 3:
+	        	System.out.println("Enter the Student First Name:");
+	        	studentFirstName = scanner.next();
+	        	System.out.println("Enter the Student Last Name:");
+	        	studentLastName = scanner.next();
+	        	System.out.println("Enter the Student Id:");
+	        	studentId = scanner.next();
+	        	System.out.println("Enter the Student Age:");
+	        	studentAge = scanner.nextInt();
+	        	
+	        	Student student7 = new Student(studentFirstName, studentLastName, studentId, studentAge);
+	        	        	
+	        	System.out.println("Select a class:");
+	        	System.out.println("1. Programming 1");
+	        	System.out.println("2. Programming 2");
+	        	System.out.println("3. Programming 3");
+	        	System.out.println("4. Programming 4");
+	        	
+	        	subjectSelectedByStudent = scanner.nextInt();
+	        	
+	        	if(subjectSelectedByStudent == 1) {
+	        		subject.getStudent().add(student7);
+	        		System.out.println("Student " + student7.getFirstName() + " " + student7.getLastName() + " has been added to " + subject.getSubjectName());
+	        	}else if (subjectSelectedByStudent == 2) {
+	        		subject1.getStudent().add(student7);
+	        		System.out.println("Student " + student7.getFirstName() + " " + student7.getLastName() + " has been added to " + subject1.getSubjectName());
+				}else if (subjectSelectedByStudent == 3) {
+					subject2.getStudent().add(student7);
+					System.out.println("Student " + student7.getFirstName() + " " + student7.getLastName() + " has been added to " + subject2.getSubjectName());
+				}else {
+					subject3.getStudent().add(student7);
+					System.out.println("Student " + student7.getFirstName() + " " + student7.getLastName() + " has been added to " + subject3.getSubjectName());
+				}
+	        	        
+	            break;
+	        case 4:
+	        	System.out.println("Enter the Subject Name:");
+	        	newSubjectName = scanner.next();
+	        	System.out.println("Enter the Subject Classroom:");
+	        	newSubjectClassroom = scanner.next();
+	        	
+	        	Subject subject4 = new Subject(newSubjectName, newSubjectClassroom, studentList, teacherPartialTime);        		
 
+	        	System.out.println(subject4);
+	        	
+	        	break;
+	        case 5:
+	        	System.out.println("\nEnter the student id:");
+	        	studentIdSelected = scanner.next();
+	        	for (int i = 0; i <= subjectList.size() - 1; i++) {
+				 	System.out.println("---------------------------------------");
+		            if (subjectList.get(i).toString().contains(studentIdSelected)){
+		            	System.out.println(subjectList.get(i).getSubjectName());
+		            }
+		            System.out.println("---------------------------------------");
+	        	}
+	        	break;
+	        case 6:
+	        	System.out.println("-----------------------------------");
+	    		System.out.println("You left. Thank you!");
+	    		System.out.println("-----------------------------------");
+	    		break;  	  	
+			}	
+	}
 }
