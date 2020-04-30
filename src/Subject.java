@@ -57,11 +57,4 @@ public class Subject {
         return s;
 	}
 
-	public int size() {
-		return 0;
-	}
-
-	public Object get(int i) {
-		return null;
-	}
 }

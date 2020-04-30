@@ -1,10 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.sun.org.apache.xpath.internal.operations.Equals;
-
 public class University {
-	
 	
 	public static void main(String[] args) {
 
@@ -59,18 +56,18 @@ public class University {
 		subjectList.add(subject2);
 		subjectList.add(subject3);
 		
+		//Menu
 		System.out.println("-----------------------------------");
 		System.out.println("Select an option:");
 		System.out.println("1. Print all the professors with its data");
 		System.out.println("2. Print all the classes and a submenu to select a class in order to print the class data including its teacher and students");
 		System.out.println("3. Create a new student and add it to an existing class");
 		System.out.println("4. Create a new class and add a teacher, students and its relevant data");
-		System.out.println("5. Create a new class and add a teacher, students and its relevant data");
+		System.out.println("5. List all the classes in which a given student is included (hint: search by id)");
 		System.out.println("6. Exit");
 		System.out.println("-----------------------------------");
 		
 		option = scanner.nextInt();
-		
 		
 			switch (option) {
 	        case 1:
@@ -78,7 +75,7 @@ public class University {
 				 	System.out.println("---------------------------------------");
 		            System.out.println(teacherList.get(i).toString());
 		            System.out.println("---------------------------------------");
-			 }
+	        	}
 	            break;
 	        case 2:
 	        	System.out.println("\n Select a class:");
@@ -141,7 +138,7 @@ public class University {
 					subject3.getStudent().add(student7);
 					System.out.println("Student " + student7.getFirstName() + " " + student7.getLastName() + " has been added to " + subject3.getSubjectName());
 				}
-	        	        
+	        	
 	            break;
 	        case 4:
 	        	System.out.println("Enter the Subject Name:");
@@ -157,6 +154,7 @@ public class University {
 	        case 5:
 	        	System.out.println("\nEnter the student id:");
 	        	studentIdSelected = scanner.next();
+	        	System.out.println("Subjects in which student with Id " + studentIdSelected + " is subscribed: ");
 	        	for (int i = 0; i <= subjectList.size() - 1; i++) {
 				 	System.out.println("---------------------------------------");
 		            if (subjectList.get(i).toString().contains(studentIdSelected)){
@@ -169,7 +167,8 @@ public class University {
 	        	System.out.println("-----------------------------------");
 	    		System.out.println("You left. Thank you!");
 	    		System.out.println("-----------------------------------");
-	    		break;  	  	
+	    		break;  	
+	    		
 			}	
 	}
 }
